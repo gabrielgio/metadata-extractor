@@ -1,0 +1,2 @@
+{:deps
+ {com.drewnoakes/metadata-extractor {:mvn/version "2.11.0"}}}
