@@ -4,37 +4,6 @@
   (:import (java.text SimpleDateFormat)
            (java.util TimeZone)))
 
-;assertEquals(PngChunkType.gAMA, dirs[1].getPngChunkType());
-;assertEquals(0.45455, dirs[1].getDouble(PngDirectory.TAG_GAMMA), 0.00001);
-;
-;assertEquals(PngChunkType.bKGD, dirs[2].getPngChunkType());
-;assertArrayEquals(new byte[]{0, 52}, dirs[2].getByteArray(PngDirectory.TAG_BACKGROUND_COLOR));
-;
-;//noinspection ConstantConditions
-;assertEquals(PngChunkType.pHYs, dirs[3].getPngChunkType());
-;assertEquals(1, dirs[3].getInt(PngDirectory.TAG_UNIT_SPECIFIER));
-;assertEquals(2835, dirs[3].getInt(PngDirectory.TAG_PIXELS_PER_UNIT_X));
-;assertEquals(2835, dirs[3].getInt(PngDirectory.TAG_PIXELS_PER_UNIT_Y));
-;
-;assertEquals(PngChunkType.tIME, dirs[4].getPngChunkType());
-;assertEquals("2013:01:01 04:08:30", dirs[4].getString(PngDirectory.TAG_LAST_MODIFICATION_TIME));
-;
-;java.util.Date modTime = dirs[4].getDate(PngDirectory.TAG_LAST_MODIFICATION_TIME);
-;SimpleDateFormat formatter = new SimpleDateFormat("EE MMM DD HH:mm:ss z yyyy", Locale.US);
-;formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
-;assertEquals("Tue Jan 01 04:08:30 GMT 2013", formatter.format(modTime));
-;assertNotNull(modTime);
-;assertEquals(1357013310000L, modTime.getTime());
-;
-;assertEquals(PngChunkType.iTXt, dirs[5].getPngChunkType());
-;@SuppressWarnings("unchecked")
-;List<KeyValuePair> pairs = (List<KeyValuePair>)dirs[5].getObject(PngDirectory.TAG_TEXTUAL_DATA);
-;assertNotNull(pairs);
-;assertEquals(1, pairs.size());
-;assertEquals("Comment", pairs.get(0).getKey().toString());
-;assertEquals("Created with GIMP", pairs.get(0).getValue().toString());
-
-
 (defn format-date [date]
   (let [formatter (SimpleDateFormat. "yyyy-MM-dd hh:mm:ss")]
     (.setTimeZone formatter (TimeZone/getTimeZone "UTC"))
