@@ -1,5 +1,9 @@
 (ns com.gabrielgio.jpeg
-  (:import (com.drew.metadata.jpeg JpegDirectory JpegComponent)))
+  (:import (com.drew.metadata.jpeg JpegDirectory JpegComponent HuffmanTablesDirectory)))
+
+(defn get-huffman-directory [^HuffmanTablesDirectory dir]
+  {:huffman-tables/is-optimized (.isOptimized dir)
+   :huffman-tables/is-typical (.isTypical dir)})
 
 (defn get-jpeg-directory-component [^JpegComponent comp]
   {:name                       (.getComponentName comp)
