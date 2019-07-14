@@ -1,4 +1,4 @@
-(ns com.gabrielgio.jpeg
+(ns com.gabrielgio.me.jpeg
   (:import (com.drew.metadata.jpeg JpegDirectory JpegComponent HuffmanTablesDirectory)))
 
 (defn get-huffman-directory [^HuffmanTablesDirectory dir]

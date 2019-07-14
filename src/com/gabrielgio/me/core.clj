@@ -1,9 +1,9 @@
-(ns com.gabrielgio.core
-  (:require [com.gabrielgio.jpeg :refer [get-jpeg-directory get-huffman-directory]]
-            [com.gabrielgio.exif-sub-ifd :refer [get-exif-sub-ifd-directory]]
-            [com.gabrielgio.xmp :refer [get-xmp-directory]]
-            [com.gabrielgio.file :refer [get-file-type-directory get-file-system-directory]]
-            [com.gabrielgio.png :refer [get-png-directory]])
+(ns com.gabrielgio.me.core
+  (:require [com.gabrielgio.me.jpeg :refer [get-jpeg-directory get-huffman-directory]]
+            [com.gabrielgio.me.exif-sub-ifd :refer [get-exif-sub-ifd-directory]]
+            [com.gabrielgio.me.xmp :refer [get-xmp-directory]]
+            [com.gabrielgio.me.file :refer [get-file-type-directory get-file-system-directory]]
+            [com.gabrielgio.me.png :refer [get-png-directory]])
   (:import (com.drew.imaging ImageMetadataReader)
            (java.io File)
            (com.drew.metadata.exif ExifSubIFDDirectory)

@@ -1,5 +1,5 @@
-(ns com.gabrielgio.png
-  (:require [com.gabrielgio.directory :refer :all])
+(ns com.gabrielgio.me.png
+  (:require [com.gabrielgio.me.directory :refer :all])
   (:import (com.drew.metadata.png PngDirectory)))
 
 (defn get-png-directory [^PngDirectory dir]

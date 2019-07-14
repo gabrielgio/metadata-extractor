@@ -1,4 +1,4 @@
-(ns com.gabrielgio.avi
+(ns com.gabrielgio.me.avi
   (:import (com.drew.metadata.avi AviDirectory)))
 
 (defn get-avi-directory [^AviDirectory dir]

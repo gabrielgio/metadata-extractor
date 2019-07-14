@@ -1,4 +1,4 @@
-(ns com.gabrielgio.directory
+(ns com.gabrielgio.me.directory
   (:import (com.drew.metadata Directory)))
 
 (defn assoc-if-contains-int [map ^Directory dir ^Integer key tag]

@@ -1,5 +1,5 @@
-(ns com.gabrielgio.xmp
-  (:require [com.gabrielgio.directory :refer :all])
+(ns com.gabrielgio.me.xmp
+  (:require [com.gabrielgio.me.directory :refer :all])
   (:import (com.drew.metadata.xmp XmpDirectory)
            (java.util Map)))
 

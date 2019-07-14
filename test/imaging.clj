@@ -1,6 +1,6 @@
 (ns imaging
   (:require [clojure.test :refer :all]
-            [com.gabrielgio.core :refer [get-metadata]])
+            [com.gabrielgio.me.core :refer [get-metadata]])
   (:import (java.text SimpleDateFormat)
            (java.util TimeZone)))
 
