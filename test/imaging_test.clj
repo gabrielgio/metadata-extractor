@@ -1,4 +1,4 @@
-(ns imaging
+(ns imaging-test
   (:require [clojure.test :refer :all]
             [com.gabrielgio.me.core :refer [get-metadata]])
   (:import (java.text SimpleDateFormat)
