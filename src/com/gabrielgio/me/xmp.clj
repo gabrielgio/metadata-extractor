@@ -8,5 +8,5 @@
 
 (defn get-xmp-directory [^XmpDirectory dir]
   (-> {}
-      (assoc-if-contains-int dir :xmp/xmp-value-count XmpDirectory/TAG_XMP_VALUE_COUNT)
+      (assoc-dir-int dir :xmp/xmp-value-count XmpDirectory/TAG_XMP_VALUE_COUNT)
       (assoc-xmp-properties (.getXmpProperties dir))))
