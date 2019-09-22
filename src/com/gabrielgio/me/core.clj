@@ -3,6 +3,8 @@
             [com.gabrielgio.me.exif-sub-ifd :refer [get-exif-sub-ifd-directory]]
             [com.gabrielgio.me.xmp :refer [get-xmp-directory]]
             [com.gabrielgio.me.file :refer [get-file-type-directory get-file-system-directory]]
+            [com.gabrielgio.me.adobe-jpeg :refer [get-adobe-jpeg-directory]]
+            [com.gabrielgio.me.bmp :refer [get-bmp-directory]]
             [com.gabrielgio.me.png :refer [get-png-directory]])
   (:import (com.drew.imaging ImageMetadataReader)
            (java.io File)
@@ -11,7 +13,9 @@
            (com.drew.metadata Directory)
            (com.drew.metadata.file FileTypeDirectory FileSystemDirectory)
            (com.drew.metadata.png PngDirectory)
-           (com.drew.metadata.xmp XmpDirectory)))
+           (com.drew.metadata.xmp XmpDirectory)
+           (com.drew.metadata.adobe AdobeJpegDirectory)
+           (com.drew.metadata.bmp BmpHeaderDirectory)))
 
 (defn router-directory [^Directory dir]
   (condp instance? dir
@@ -22,6 +26,8 @@
     XmpDirectory            (get-xmp-directory dir)
     HuffmanTablesDirectory  (get-huffman-directory dir)
     FileSystemDirectory     (get-file-system-directory dir)
+    AdobeJpegDirectory      (get-adobe-jpeg-directory dir)
+    BmpHeaderDirectory      (get-bmp-directory dir)
     nil))
 
 (defn get-metadata [^File file]

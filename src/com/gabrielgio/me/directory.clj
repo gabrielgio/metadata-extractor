@@ -30,3 +30,8 @@
   (if (.containsTag dir tag)
     (assoc map key (.getObject dir tag))
     map))
+
+(defn assoc-if-contains-descriptor [map ^Directory dir ^Integer key tag]
+  (if (.containsTag dir tag)
+    (assoc map key (.getDescription dir tag))
+    map))

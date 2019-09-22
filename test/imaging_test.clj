@@ -43,3 +43,39 @@
           meta (get-metadata file)]
       (is (true? (:huffman-tables/is-typical meta)))
       (is (false? (:huffman-tables/is-optimized meta))))))
+
+(deftest bmp-header-metadata-reader-test
+  (testing "test MsPaint 16 color"
+    (let [file (clojure.java.io/file "test/data/16color-10x10.bmp")
+          meta (get-metadata file)]
+      (is (= 10 (:bmp/tag-image-width meta)))
+      (is (= 10 (:bmp/tag-image-height meta)))
+      (is (= 4 (:bmp/tag-bits-per-pixel meta)))
+      (is (= "None" (:bmp/tag-compression meta)))
+      (is (= 0 (:bmp/tag-x-pixel-per-meter meta)))
+      (is (= 0 (:bmp/tag-y-pixel-per-meter meta)))
+      (is (= 0 (:bmp/tag-palette-colour-count meta)))
+      (is (= 0 (:bmp/tag-important-colour-count meta)))
+      (is (= 1 (:bmp/tag-colour-planes meta)))
+      (is (= 40 (:bmp/tag-header-size meta)))))
+  (testing "test MsPaint 24 bpp"
+    (let [file (clojure.java.io/file "test/data/24bpp-10x10.bmp")
+          meta (get-metadata file)]
+      (is (= 10 (:bmp/tag-image-width meta)))
+      (is (= 10 (:bmp/tag-image-height meta)))
+      (is (= 24 (:bmp/tag-bits-per-pixel meta)))
+      (is (= "None" (:bmp/tag-compression meta)))
+      (is (= 0 (:bmp/tag-x-pixel-per-meter meta)))
+      (is (= 0 (:bmp/tag-y-pixel-per-meter meta)))
+      (is (= 0 (:bmp/tag-palette-colour-count meta)))
+      (is (= 0 (:bmp/tag-important-colour-count meta)))
+      (is (= 1 (:bmp/tag-colour-planes meta)))
+      (is (= 40 (:bmp/tag-header-size meta))))))
+
+
+; TODO: this test wont work since it does not work on the upstream project
+;(deftest adobe-jpeg-reader-test
+;  (testing "test read adobe jpeg metadata1"
+;    (let [file (clojure.java.io/file "test/data/adobeJpeg1.jpg.appe")
+;          meta (get-metadata file)]
+;      (is (= 1 (:adobe-jpeg/tag-color-transform meta))))))
