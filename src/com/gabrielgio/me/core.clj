@@ -5,6 +5,7 @@
             [com.gabrielgio.me.file :refer [get-file-type-directory get-file-system-directory]]
             [com.gabrielgio.me.adobe-jpeg :refer [get-adobe-jpeg-directory]]
             [com.gabrielgio.me.bmp :refer [get-bmp-directory]]
+            [com.gabrielgio.me.exif :refer [get-cannon-exif-directory]]
             [com.gabrielgio.me.png :refer [get-png-directory]])
   (:import (com.drew.imaging ImageMetadataReader)
            (java.io File)
@@ -14,6 +15,7 @@
            (com.drew.metadata.file FileTypeDirectory FileSystemDirectory)
            (com.drew.metadata.png PngDirectory)
            (com.drew.metadata.xmp XmpDirectory)
+           (com.drew.metadata.exif.makernotes CanonMakernoteDirectory)
            (com.drew.metadata.adobe AdobeJpegDirectory)
            (com.drew.metadata.bmp BmpHeaderDirectory)))
 
@@ -28,6 +30,7 @@
     FileSystemDirectory     (get-file-system-directory dir)
     AdobeJpegDirectory      (get-adobe-jpeg-directory dir)
     BmpHeaderDirectory      (get-bmp-directory dir)
+    CanonMakernoteDirectory (get-cannon-exif-directory dir)
     nil))
 
 (defn get-metadata [^File file]
