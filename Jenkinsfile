@@ -1,5 +1,5 @@
 pipeline {
-         agent clj
+         agent { label 'clj' }
          stages {
                 stage('test') {
                               steps {
