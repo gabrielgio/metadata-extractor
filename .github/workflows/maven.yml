@@ -23,6 +23,7 @@ jobs:
         USERNAME: ${{ secrets.MAVEN_USERNAME }}
         PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
       run: |
+        mkdir ~/.m2 && \
         echo "<settings><servers><server><id>clojars</id><username>${USERNAME}</username><password>${PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
     - name: Run test
       run: clojure -A:test
