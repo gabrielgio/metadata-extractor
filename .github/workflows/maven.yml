@@ -17,7 +17,7 @@ jobs:
       run: |
         curl -O https://download.clojure.org/install/linux-install-1.10.1.483.sh && \
         chmod +x linux-install-1.10.1.483.sh && \
-        ./linux-install-1.10.1.483.sh
+        sudo ./linux-install-1.10.1.483.sh
     - name: Cache
       uses: actions/cache@v1.0.0
     - name: Run test
