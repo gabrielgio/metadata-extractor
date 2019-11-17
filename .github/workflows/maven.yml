@@ -29,7 +29,7 @@ jobs:
       run: clojure -A:test
     - name: Set version
       run: |
-        export VERSION=`mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)'`
+        export VERSION=` mvn help:evaluate -Dexpression=project.version -q -DforceStdout`
         echo "CURRENT VERSION BEING BILT: " $VERSION
     - name: Generate Uberjar
       run: |
