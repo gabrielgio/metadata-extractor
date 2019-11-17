@@ -2,6 +2,7 @@
   (:require [clojure.test :refer :all]
             [com.gabrielgio.me.core :refer [get-metadata]])
   (:import (java.text SimpleDateFormat)
+           (java.io File)
            (java.util TimeZone)))
 
 (defn format-date [date]
@@ -71,7 +72,6 @@
       (is (= 0 (:bmp/tag-important-colour-count meta)))
       (is (= 1 (:bmp/tag-colour-planes meta)))
       (is (= 40 (:bmp/tag-header-size meta))))))
-
 
 ; TODO: this test wont work since it does not work on the upstream project
 ;(deftest adobe-jpeg-reader-test
