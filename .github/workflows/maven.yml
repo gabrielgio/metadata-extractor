@@ -14,12 +14,12 @@ jobs:
       with:
         java-version: 1.8
     - name: Set up Clojure
-      run: ./build/install-clojure
+      run: build/install-clojure
     - name: Set up credentials
       env:
         USERNAME: ${{ secrets.MAVEN_USERNAME }}
         PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-      run: ./build/setup-credentials
+      run: build/setup-credentials
     - name: Run test
       run: clojure -A:test
     - name: Generate Uberjar
