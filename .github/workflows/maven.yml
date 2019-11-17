@@ -27,9 +27,12 @@ jobs:
         echo "<settings><servers><server><id>clojars</id><username>${USERNAME}</username><password>${PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
     - name: Run test
       run: clojure -A:test
+    - name: Set version
+      run: |
+        export VERSION=`mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)'`
+        echo "CURRENT VERSION BEING BILT: " $VERSION
     - name: Generate Uberjar
       run: |
-        VERSION=`mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version|grep -Ev '(^\[|Download\w+:)'` \
         clojure -A:uberjar --app-version $VERSION
     - name: Deploy clojars
       run: mvn deploy
