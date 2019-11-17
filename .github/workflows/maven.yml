@@ -14,21 +14,15 @@ jobs:
       with:
         java-version: 1.8
     - name: Set up Clojure
-      run: |
-        curl -O https://download.clojure.org/install/linux-install-1.10.1.483.sh && \
-        chmod +x linux-install-1.10.1.483.sh && \
-        sudo ./linux-install-1.10.1.483.sh
+      run: ./build/install-clojure
     - name: Set up credentials
       env:
         USERNAME: ${{ secrets.MAVEN_USERNAME }}
         PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-      run: |
-        mkdir ~/.m2 && \
-        echo "<settings><servers><server><id>clojars</id><username>${USERNAME}</username><password>${PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
+      run: ./build/setup-credentials
     - name: Run test
       run: clojure -A:test
     - name: Generate Uberjar
-      run: |
-        clojure -A:uberjar --app-version `mvn help:evaluate -Dexpression=project.version -q -DforceStdout`
+      run: clojure -A:uberjar --app-version `mvn help:evaluate -Dexpression=project.version -q -DforceStdout`
     - name: Deploy clojars
       run: mvn deploy

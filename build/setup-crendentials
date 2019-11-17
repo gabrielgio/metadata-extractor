@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mkdir ~/.m2
+echo "<settings><servers><server><id>clojars</id><username>${USERNAME}</username><password>${PASSWORD}</password></server></servers></settings>" > ~/.m2/settings.xml
