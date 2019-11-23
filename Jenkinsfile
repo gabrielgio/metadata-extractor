@@ -1,4 +1,5 @@
 pipeline {
+    agent { label 'clojure' }
     stages {
         stage('Run test') {
             steps {
