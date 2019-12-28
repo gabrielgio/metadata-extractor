@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'gabrielgio/clojure' }
+    agent { docker 'gabrielgio/clojure-jenkins' }
     stages {
         stage('Run test') {
             steps {
